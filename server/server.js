@@ -20,7 +20,7 @@ app.use(express.json());
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
 
-app.use(clerkMiddleware())
+// app.use(clerkMiddleware())
 
 
 // Routes
