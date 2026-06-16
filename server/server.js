@@ -8,7 +8,7 @@ app.use(cors()); //
 app.use(express.json());
 
 const port = 3000;
-
+// Load environment variables from .env file
 app.get('/',(req,res)=>{
     res.send("Server is running");
 })
