@@ -16,8 +16,8 @@ await connectDB();
 // Middleware
 app.use(cors()); 
 app.use(express.json());    
-
-console.log("INNGEST_SIGNING_KEY =", process.env.INNGEST_SIGNING_KEY);
+console.log("EVENT KEY =", process.env.INNGEST_EVENT_KEY);
+console.log("SIGNING KEY =", process.env.INNGEST_SIGNING_KEY);
 
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
