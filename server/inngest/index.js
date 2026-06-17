@@ -56,5 +56,4 @@ const syncUserUpdate = inngest.createFunction(
         console.log(`User with id ${id} updated in database`);
     }
 )
-
-export const functions = [syncUserCreation,syncUserDeletion,syncUserUpdate];
+export const functions = [];

@@ -15,7 +15,7 @@ await connectDB();
 
 // Middleware
 app.use(cors()); 
-app.use(express.json());
+app.use(express.json());    
 
 app.get("/api/inngest", (req, res) => {
     res.json({
