@@ -17,7 +17,12 @@ await connectDB();
 app.use(cors()); 
 app.use(express.json());
 
-app.use("/api/inngest", serve({ client: inngest, functions }));
+app.get("/api/inngest", (req, res) => {
+    res.json({
+        success: true,
+        message: "Reached Express!"
+    });
+});
 
 
 // app.use(clerkMiddleware())
