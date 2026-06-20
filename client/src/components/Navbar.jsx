@@ -4,6 +4,7 @@ import { assets } from '../assets/assets'
 import {MenuIcon,SearchIcon, TicketPlus, XIcon} from 'lucide-react'
 import { useState } from 'react'
 import { useClerk, UserButton, useUser } from '@clerk/react'
+import { useAppContext } from '../context/AppContext'
 
 const Navbar = () => {
 
@@ -11,6 +12,8 @@ const Navbar = () => {
   const {user} = useUser()
 const {openSignIn} = useClerk()
 const navigate = useNavigate()
+
+const {favoriteMovies} = useAppContext()
     
   return ( 
     <div className='fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 md:px-16 lh:px-36 py-5'>
@@ -29,7 +32,9 @@ const navigate = useNavigate()
             <Link  onClick={() => {scrollTo(0,0);setOpen(false )}} to='/movies'>Movies</Link>
             <Link  onClick={() => {scrollTo(0,0);setOpen(false )}} to='/'>Theaters</Link>
             <Link  onClick={() => {scrollTo(0,0);setOpen(false )}} to='/'>Releases</Link>
-            <Link  onClick={() => {scrollTo(0,0);setOpen(false )}} to='/favorite '>Favorites</Link>
+            {favoriteMovies.length > 0 && (
+              <Link  onClick={() => {scrollTo(0,0);setOpen(false )}} to='/favorite '>Favorites</Link>
+            )}
             
         </div>
 
@@ -41,10 +46,10 @@ const navigate = useNavigate()
               :(
                 <UserButton >
                   <UserButton.MenuItems>
-                    <UserButton.Action label = "My Bookings" labelIcon= {<TicketPlus width={15}/>} onClick={()=> navigate('/My Bookings')}/>
+                    <UserButton.Action label = "My Bookings" labelIcon= {<TicketPlus width={15}/>} onClick={()=> navigate('/my-bookings')}/>
                   </UserButton.MenuItems>
                 </UserButton>
-              )
+              ) 
               
             }
 
