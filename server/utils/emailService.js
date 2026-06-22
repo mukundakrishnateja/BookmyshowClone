@@ -38,7 +38,7 @@ export const sendTicketEmail = async (bookingId) => {
     const movieLanguage = booking.show?.movie?.original_language || "";
     const movieGenres = booking.show?.movie?.genres?.join(', ') || "";
     const showDateTime = booking.show?.showDateTime;
-    
+
     // Format date and time
     let showDateStr = "";
     let showTimeStr = "";
