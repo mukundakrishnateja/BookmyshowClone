@@ -21,13 +21,12 @@ await connectDB();
 // Periodically clean up unpaid bookings older than 10 minutes (run every 60 seconds)
 setInterval(cleanupExpiredBookings, 60 * 1000);
 
-app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://bookmyshowclone.vercel.app"
-  ],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
 
 
 app.use(express.json());
